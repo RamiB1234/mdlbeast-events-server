@@ -21,7 +21,8 @@ namespace mdlbeast_events_server.Models
                 Description = "Another One In The Bag! For our 4th Soundstorm - we went bigger and wilder with 3 thrilling nights, 8 stages, and 200 artists to form your memorable experience. If you missed this year’s Storm, here’s a recap of the loudest music event in the region! This is Soundstorm.",
                 Name = "Soundstorm",
                 Date = "14/12/2023",
-                Location = "Riyadh"
+                Location = "Riyadh",
+                ImageURL= "images/soundstorm.PNG"
             },
             new Event
             {
@@ -30,6 +31,7 @@ namespace mdlbeast_events_server.Models
                 Name = "Balad Social",
                 Date = "25/04/2024",
                 Location = "Jeddah",
+                ImageURL = "images/balad.PNG"
             },
             new Event
             {
@@ -38,6 +40,7 @@ namespace mdlbeast_events_server.Models
                 Name = "KOKOUB",
                 Date = "01/03/2024",
                 Location = "Al Ula",
+                ImageURL = "images/kokub.PNG"
             });
         }
     }

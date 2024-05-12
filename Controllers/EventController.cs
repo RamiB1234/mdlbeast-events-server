@@ -18,6 +18,7 @@ namespace mdlbeast_events_server.Controllers
                     Name= "Soundstorm",
                     Date="14/12/2023",
                     Location="Riyadh",
+                    ImageURL= "images/soundstorm.PNG"
                 },
                 new Event
                 {
@@ -26,6 +27,7 @@ namespace mdlbeast_events_server.Controllers
                     Name= "Balad Social",
                     Date="25/04/2024",
                     Location="Jeddah",
+                    ImageURL = "images/balad.PNG"
                 },
                 new Event
                 {
@@ -34,6 +36,7 @@ namespace mdlbeast_events_server.Controllers
                     Name= "KOKOUB",
                     Date="01/03/2024",
                     Location="Al Ula",
+                    ImageURL = "images/kokub.PNG"
                 },
             };
         }
