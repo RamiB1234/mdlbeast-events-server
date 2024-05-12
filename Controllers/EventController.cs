@@ -37,5 +37,11 @@ namespace mdlbeast_events_server.Controllers
                 },
             };
         }
+
+        [HttpPost(Name = "SaveTicket")]
+        public StatusCodeResult Post([FromBody] Ticket ticket)
+        {
+            return Ok();
+        }
     }
 }
