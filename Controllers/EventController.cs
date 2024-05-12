@@ -7,7 +7,7 @@ namespace mdlbeast_events_server.Controllers
     [Route("[controller]")]
     public class EventController : ControllerBase
     {
-        [HttpGet(Name = "GetEvents")]
+        [HttpGet]
         public List<Event> Get()
         {
             return new List<Event> {
@@ -36,12 +36,6 @@ namespace mdlbeast_events_server.Controllers
                     Location="Al Ula",
                 },
             };
-        }
-
-        [HttpPost(Name = "SaveTicket")]
-        public StatusCodeResult Post([FromBody] Ticket ticket)
-        {
-            return Ok();
         }
     }
 }
