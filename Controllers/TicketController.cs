@@ -46,5 +46,12 @@ namespace mdlbeast_events_server.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet]
+        public List<Ticket> Get()
+        {
+            return ticketRepository.GetTicketList();
+
+        }
     }
 }

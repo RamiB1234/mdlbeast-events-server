@@ -24,5 +24,10 @@ namespace mdlbeast_events_server.Models.Repository
             Random generator = new Random();
             return generator.Next(0, 1000000).ToString("D6");
         }
+
+        public List<Ticket> GetTicketList() 
+        {
+            return context.Tickets.ToList();
+        }
     }
 }
