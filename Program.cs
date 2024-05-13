@@ -1,6 +1,9 @@
 using mdlbeast_events_server.Models;
+using mdlbeast_events_server.Models.EmailEntities;
 using mdlbeast_events_server.Models.Repository;
+using mdlbeast_events_server.Utilities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultValue")));
+var emailConfig = builder.Configuration
+.GetSection("EmailConfiguration")
+.Get<EmailConfiguration>();
 
 // Resolve dependencies:
+builder.Services.AddSingleton(emailConfig);
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddScoped<IEventRepository, EFEventRepository>();
 builder.Services.AddScoped<ITicketRepository, EFTicketRepository>();
 
