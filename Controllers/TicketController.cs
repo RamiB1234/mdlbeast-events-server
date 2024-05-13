@@ -1,6 +1,7 @@
 ﻿using mdlbeast_events_server.Models.Entities;
 using mdlbeast_events_server.Models.Repository;
 using mdlbeast_events_server.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace mdlbeast_events_server.Controllers
@@ -48,6 +49,7 @@ namespace mdlbeast_events_server.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public List<Ticket> Get()
         {
             return ticketRepository.GetTicketList();
