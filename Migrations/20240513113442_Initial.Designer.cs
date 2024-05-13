@@ -12,7 +12,7 @@ using mdlbeast_events_server.Models;
 namespace mdlbeast_events_server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240512222803_Initial")]
+    [Migration("20240513113442_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,6 +103,9 @@ namespace mdlbeast_events_server.Migrations
 
                     b.Property<DateTime>("PurchaseDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("TicketNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

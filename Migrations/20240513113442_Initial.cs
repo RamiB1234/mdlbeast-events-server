@@ -36,6 +36,7 @@ namespace mdlbeast_events_server.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Attended = table.Column<bool>(type: "bit", nullable: false),
                     EventName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TicketNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

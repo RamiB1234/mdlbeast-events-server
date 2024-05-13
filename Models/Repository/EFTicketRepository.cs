@@ -13,10 +13,16 @@ namespace mdlbeast_events_server.Models.Repository
 
         public void SaveTicket(Ticket ticket)
         {
-            // To-do: Generate unique ticket no
+            ticket.TicketNumber = GenerateTicketNumber();
 
             context.Tickets.Add(ticket);
             context.SaveChanges();
+        }
+
+        string GenerateTicketNumber()
+        {
+            Random generator = new Random();
+            return generator.Next(0, 1000000).ToString("D6");
         }
     }
 }

@@ -7,6 +7,7 @@
         public string? Email { get; set; }
         public bool Attended { get; set; }
         public string? EventName { get; set; }
+        public string? TicketNumber { get; set; }
         public DateTime PurchaseDate { get; set; } = DateTime.Now;
     }
 }
