@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Resolve dependencies:
 builder.Services.AddScoped<IEventRepository, EFEventRepository>();
+builder.Services.AddScoped<ITicketRepository, EFTicketRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
