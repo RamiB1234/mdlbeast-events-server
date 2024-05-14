@@ -109,6 +109,33 @@ namespace mdlbeast_events_server.Migrations
 
                     b.ToTable("Tickets");
                 });
+
+            modelBuilder.Entity("mdlbeast_events_server.Models.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Password = "password",
+                            Username = "admin"
+                        });
+                });
 #pragma warning restore 612, 618
         }
     }

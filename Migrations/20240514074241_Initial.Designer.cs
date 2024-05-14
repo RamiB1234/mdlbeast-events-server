@@ -12,7 +12,7 @@ using mdlbeast_events_server.Models;
 namespace mdlbeast_events_server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240513113442_Initial")]
+    [Migration("20240514074241_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -110,6 +110,33 @@ namespace mdlbeast_events_server.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("mdlbeast_events_server.Models.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Password = "password",
+                            Username = "admin"
+                        });
                 });
 #pragma warning restore 612, 618
         }

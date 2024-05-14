@@ -1,4 +1,5 @@
 ﻿using mdlbeast_events_server.Models.Entities;
+using mdlbeast_events_server.Models.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,10 +12,12 @@ namespace mdlbeast_events_server.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly IUserRepository userRepository;
 
-        public AuthController(IConfiguration configuration)
+        public AuthController(IConfiguration configuration, IUserRepository userRepository)
         {
             _configuration = configuration;
+            this.userRepository = userRepository;
         }
 
         [HttpPost("login")]
@@ -30,8 +33,7 @@ namespace mdlbeast_events_server.Controllers
 
         private bool IsValidUser(User user)
         {
-            // In a real application, you'd validate against a database
-            return user.Username == "admin" && user.Password == "password";
+            return userRepository.ValidateCredentials(user.Username, user.Password);
         }
 
         private string GenerateJwtToken(string username)

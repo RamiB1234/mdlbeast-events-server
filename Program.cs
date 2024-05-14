@@ -21,6 +21,7 @@ var emailConfig = builder.Configuration
 // Resolve dependencies:
 builder.Services.AddSingleton(emailConfig);
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IUserRepository, EFUserRepository>();
 builder.Services.AddScoped<IEventRepository, EFEventRepository>();
 builder.Services.AddScoped<ITicketRepository, EFTicketRepository>();
 

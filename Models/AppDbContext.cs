@@ -10,6 +10,7 @@ namespace mdlbeast_events_server.Models
 
         public DbSet<Event> Events { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<User> Users { get; set; }
 
         // Seeding initial data:
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,6 +42,15 @@ namespace mdlbeast_events_server.Models
                 Date = "01/03/2024",
                 Location = "Al Ula",
                 ImageURL = "images/kokub.PNG"
+            });
+
+            modelBuilder.Entity<User>()
+                .HasData(
+            new User
+            {
+                Id = 1,
+                Username = "admin",
+                Password = "password"
             });
         }
     }
