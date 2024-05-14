@@ -22,9 +22,7 @@ ENTRYPOINT ["dotnet", "mdlbeast-events-server.dll"]
 
 =======================================================================================
 
-Run to build image: 
-"docker build -t mdlbeast-events-server ."
+Run to build image and run container: 
+"docker-compose up --build"
 
 =======================================================================================
-Run to run container:
-Run "docker run -d -p 8080:80 mdlbeast-events-server"
