@@ -4,7 +4,17 @@
 
 This is the server side of the event system. Please check the [front-end repository](https://github.com/RamiB1234/mdlbeast-events-front) as well.
 
-## Features
+## Introduction
+This is the server side for managing the MDLBeast Events. It's a demo I developed to demonstrate my abilities in the technology stack needed for the Fullstack Engineer technical interview
+
+The system is a simulation for an event/ticketing system that has the following features:
+- Browsing currently available events
+- Displaying more information about an event
+- Purchasing a ticket (actual payment is beyound the scope of the demo)
+- Receiving the ticket number by email (Ideally, clients receive a QR code, but I tried to keep things simple)
+- Admin log in
+- Admins can view all ticket information and whither or not tickets were scanned
+- Admins can scan an image to prevent mutiple entries (Meaning simply entering the ticket number, in the real world, ushers would use a QR scanner)
 
 ## Technology Stack
 
@@ -19,6 +29,7 @@ This project utilizes a robust set of technologies for development and deploymen
 - **React**
   - ![React Logo](https://github.com/RamiB1234/mdlbeast-events-server/blob/master/README_Images/react.PNG?raw=true)
   - A JavaScript library for building user interfaces, maintained by Facebook and a community of individual developers and companies.
+  - Note: The frontend is not part of this repository. It exists in the [front-end repository](https://github.com/RamiB1234/mdlbeast-events-front)
 
 ### Database
 - **PostgreSQL**
@@ -70,18 +81,17 @@ This application can be run in two environments: locally using IIS Express and a
 
 ### Running Locally with IIS Express and localDB
 
-1. **Update the Database**:
-   - Ensure that the Entity Framework Core tools are installed.
-   - Open the Package Manager Console in Visual Studio.
-   - Run the command `Update-Database` to apply the migrations to your localDB.
-   
-2. **Configure the Connection String**:
+1. **Configure the Connection String**:
    - In `appsettings.json`, ensure the connection string is set to use localDB:
      ```json
      "ConnectionStrings": {
        "DefaultValue": "Server=(localdb)\\mssqllocaldb;Database=mdlbeast-events-db;Trusted_Connection=True;MultipleActiveResultSets=true"
      }
      ```
+1. **Update the Database**:
+   - Ensure that the Entity Framework Core tools are installed.
+   - Open the Package Manager Console in Visual Studio.
+   - Run the command `Update-Database` to create the localDB and apply the migrations.
 
 3. **Start the Application**:
    - Use Visual Studio to run the application using IIS Express.
@@ -89,22 +99,36 @@ This application can be run in two environments: locally using IIS Express and a
 
 ### Running with Docker and PostgreSQL
 
-1. **Configure the Connection String**:
-   - For local migration and updates, use `localhost` in the connection string. For runtime within containers, use `db`:
+1. **Configure the Connection String for the image**:
+   - For local migration and updates, use `localhost` in the connection string. 
+   - For runtime within containers, use `db`
+   - Initially, ensure the connection string has the host name `db`. This is essential for compusing the commands that exist in `docker-compose.yml`
      ```json
      "ConnectionStrings": {
-       "DefaultValue": "Host=db;Port=5432;Database=mydatabase;Username=postgres;Password=mysecretpassword" // Use 'Host=localhost' for local migration
+       "DefaultValue": "Host=db;Port=5432;Database=mydatabase;Username=postgres;Password=mysecretpassword"
      }
      ```
 
-2. **Docker Compose**:
+2. **Building the image and running the container**:
    - Ensure Docker is installed on your machine.
-   - Navigate to the directory containing your `docker-compose.yml` file.
-   - Run the following command to start all services:
-     ```bash
-     docker-compose up
+   - Open `bash` terminal or `Powershell` and navigate to the root folder containing your `docker-compose.yml` file
+   - Run `docker-compose up --build` to build an image that contains the application and `PostgreSQL` database
+
+
+3. **Configure the Connection String for the migration**:
+   - Now set the connection string host name to `localhost`. This is needed to apply the migration to the container db
+     ```json
+     "ConnectionStrings": {
+       "DefaultValue": "Host=localhost;Port=5432;Database=mydatabase;Username=postgres;Password=mysecretpassword"
+     }
      ```
-   - Once the services are running, the application is accessible via `http://localhost:8000/swagger`.
+
+4. **Update the Database**:
+   - Open the Package Manager Console in Visual Studio.
+   - Run the command `Update-Database` to create the localDB and apply the migrations.
+
+
+Once the services are running, the application is accessible via `http://localhost:8000/`
 
 ### Updating Database Migrations
 

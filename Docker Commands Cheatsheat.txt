@@ -29,3 +29,7 @@ Run to build image and run container:
 
 To run a query:
 "docker exec -it [container_name_or_id] psql -U postgres -d mydatabase"
+
+=======================================================================================
+To check for logs:
+docker logs [db_container_name_or_id]
