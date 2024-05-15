@@ -8,6 +8,6 @@
         public bool Attended { get; set; }
         public string? EventName { get; set; }
         public string? TicketNumber { get; set; }
-        public DateTime PurchaseDate { get; set; } = DateTime.Now;
+        public DateTime PurchaseDate { get; set; } = DateTime.UtcNow;
     }
 }
