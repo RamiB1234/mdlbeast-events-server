@@ -6,6 +6,20 @@ This is the server side of the event system. Please check the [front-end reposit
 
 ## Technology Stack
 
+## Endpoints
+
+### AuthController Endpoints
+
+| HTTP Method | Endpoint   | Parameters       | Return JSON      | Description                         | Authentication Required |
+|-------------|------------|------------------|------------------|-------------------------------------|-------------------------|
+| POST        | /auth/login| User credentials | JSON with Token  | Authenticates user and returns JWT  | No                      |
+
+**Notes:**
+- **Parameters**: Add further details about required parameters as needed.
+- **Return JSON**: Describe the JSON structure returned by endpoints where applicable.
+- **Authentication Required**: Indicates whether an endpoint requires authentication.
+
+
 ## Running 
 
 ### Dockerized Version
