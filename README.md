@@ -62,11 +62,56 @@ This project utilizes a robust set of technologies for development and deploymen
 - **Authentication Required**: Indicates whether an endpoint requires authentication.
 
 
-## Running 
+## Running the Application
 
-### Dockerized Version
+This application can be run in two environments: locally using IIS Express and a localDB, or using Docker containers with a PostgreSQL database.
 
-### Using IIS Express
+### Running Locally with IIS Express and localDB
+
+1. **Update the Database**:
+   - Ensure that the Entity Framework Core tools are installed.
+   - Open the Package Manager Console in Visual Studio.
+   - Run the command `Update-Database` to apply the migrations to your localDB.
+   
+2. **Configure the Connection String**:
+   - In `appsettings.json`, ensure the connection string is set to use localDB:
+     ```json
+     "ConnectionStrings": {
+       "DefaultValue": "Server=(localdb)\\mssqllocaldb;Database=mdlbeast-events-db;Trusted_Connection=True;MultipleActiveResultSets=true"
+     }
+     ```
+
+3. **Start the Application**:
+   - Use Visual Studio to run the application using IIS Express.
+   - Navigate to `https://localhost:PORT/swagger` to access the Swagger UI and test the API endpoints.
+
+### Running with Docker and PostgreSQL
+
+1. **Configure the Connection String**:
+   - For local migration and updates, use `localhost` in the connection string. For runtime within containers, use `db`:
+     ```json
+     "ConnectionStrings": {
+       "DefaultValue": "Host=db;Port=5432;Database=mydatabase;Username=postgres;Password=mysecretpassword" // Use 'Host=localhost' for local migration
+     }
+     ```
+
+2. **Docker Compose**:
+   - Ensure Docker is installed on your machine.
+   - Navigate to the directory containing your `docker-compose.yml` file.
+   - Run the following command to start all services:
+     ```bash
+     docker-compose up
+     ```
+   - Once the services are running, the application is accessible via `http://localhost:8000/swagger`.
+
+### Updating Database Migrations
+
+To apply migrations to the PostgreSQL database when running in Docker:
+- Use `docker-compose exec app bash` to access the app's container shell.
+- Run migration commands within the container if necessary, or directly from your machine pointing to the PostgreSQL service exposed on `localhost`.
+
+This setup ensures that you can easily switch between development environments depending on your needs.
+
 
 ## License
 The project is released under [MIT](https://github.com/RamiB1234/mdlbeast-events-server/blob/master/LICENSE) License
