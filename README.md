@@ -112,7 +112,7 @@ This application can be run in two environments: locally using IIS Express and a
 2. **Building the image and running the container**:
    - Ensure Docker is installed on your machine.
    - Open `bash` terminal or `Powershell` and navigate to the root folder containing your `docker-compose.yml` file
-   - Run `docker-compose up --build` to build an image that contains the application and `PostgreSQL` database
+   - Run `docker-compose up --build` to build an image that contains the application and `PostgreSQL` database and run the container
 
 
 3. **Configure the Connection String for the migration**:
@@ -130,14 +130,7 @@ This application can be run in two environments: locally using IIS Express and a
 
 Once the services are running, the application is accessible via `http://localhost:8000/`
 
-### Updating Database Migrations
-
-To apply migrations to the PostgreSQL database when running in Docker:
-- Use `docker-compose exec app bash` to access the app's container shell.
-- Run migration commands within the container if necessary, or directly from your machine pointing to the PostgreSQL service exposed on `localhost`.
-
 This setup ensures that you can easily switch between development environments depending on your needs.
-
 
 ## License
 The project is released under [MIT](https://github.com/RamiB1234/mdlbeast-events-server/blob/master/LICENSE) License
