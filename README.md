@@ -8,6 +8,20 @@ This is the server side of the event system. Please check the [front-end reposit
 
 ## Endpoints
 
+### EventController Endpoints
+
+| HTTP Method | Endpoint | Parameters | Return JSON   | Description          | Authentication Required |
+|-------------|----------|------------|---------------|----------------------|-------------------------|
+| GET         | /event   | None       | List of Events| Retrieves all events | No                      |
+
+### TicketController Endpoints
+
+| HTTP Method | Endpoint | Parameters  | Return JSON | Description                                | Authentication Required |
+|-------------|----------|-------------|-------------|--------------------------------------------|-------------------------|
+| POST        | /ticket  | Ticket body | Status Code | Saves ticket and sends confirmation email  | No                      |
+| GET         | /ticket  | None        | List of Tickets | Retrieves all tickets                   | Yes                     |
+| PATCH       | /ticket  | Ticket body | Status Code | Updates ticket status as scanned           | Yes                     |
+
 ### AuthController Endpoints
 
 | HTTP Method | Endpoint   | Parameters       | Return JSON      | Description                         | Authentication Required |
