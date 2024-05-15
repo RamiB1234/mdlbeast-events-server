@@ -1,6 +1,6 @@
 # MDLBeast Events (Server)
 
-This is the server side of the event system. Please check the [front-end repository](http://localhost:3000) as well.
+This is the server side of the event system. Please check the [front-end repository](https://github.com/RamiB1234/mdlbeast-events-front) as well.
 
 ## Features
 
