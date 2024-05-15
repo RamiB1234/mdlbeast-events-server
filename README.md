@@ -13,3 +13,4 @@ This is the server side of the event system. Please check the [front-end reposit
 ### Using IIS Express
 
 ## License
+The project is released under [MIT](https://github.com/RamiB1234/mdlbeast-events-server/blob/master/LICENSE) License
