@@ -6,5 +6,6 @@ namespace mdlbeast_events_server.Models.Repository
     {
         void SaveTicket(Ticket ticket);
         List<Ticket> GetTicketList();
+        bool ScanTicket(string ticketNumber);
     }
 }

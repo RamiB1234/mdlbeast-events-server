@@ -55,5 +55,20 @@ namespace mdlbeast_events_server.Controllers
             return ticketRepository.GetTicketList();
 
         }
+
+        [HttpPatch]
+        [Authorize]
+        public StatusCodeResult ScanTicket(Ticket ticket)
+        {
+            var status = ticketRepository.ScanTicket(ticket.TicketNumber);
+            if(status)
+            {
+                return Ok();
+            }
+            else 
+            { 
+                return BadRequest(); 
+            }
+        }
     }
 }

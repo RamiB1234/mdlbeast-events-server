@@ -13,8 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultValue")));
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultValue")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultValue")));
+    //options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultValue")));
 var emailConfig = builder.Configuration
 .GetSection("EmailConfiguration")
 .Get<EmailConfiguration>();
