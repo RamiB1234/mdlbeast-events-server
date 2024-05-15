@@ -5,7 +5,9 @@
 This is the server side of the event system. Please check the [front-end repository](https://github.com/RamiB1234/mdlbeast-events-front) as well.
 
 ## Introduction
-This is the server side for managing the MDLBeast Events. It's a demo I developed to demonstrate my abilities in the technology stack needed for the Fullstack Engineer technical interview
+This is the server side for managing the MDLBeast Events. It offers REST APIs to be consumed by a React client.
+
+It's a demo I developed to demonstrate my abilities in the technology stack needed for the Fullstack Engineer technical interview
 
 The system is a simulation for an event/ticketing system that has the following features:
 - Browsing currently available events
@@ -80,6 +82,8 @@ This project utilizes a robust set of technologies for development and deploymen
 This application can be run in two environments: locally using IIS Express and a localDB, or using Docker containers with a PostgreSQL database.
 
 ### Running Locally with IIS Express and localDB
+
+Visual Studio with the ASP.NET 6 and web development workload is required
 
 1. **Configure the Connection String**:
    - In `appsettings.json`, ensure the connection string is set to use localDB:
