@@ -26,3 +26,6 @@ Run to build image and run container:
 "docker-compose up --build"
 
 =======================================================================================
+
+To run a query:
+"docker exec -it [container_name_or_id] psql -U postgres -d mydatabase"
