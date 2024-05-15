@@ -136,5 +136,8 @@ Once the services are running, the application is accessible via `http://localho
 
 This setup ensures that you can easily switch between development environments depending on your needs.
 
+## Additional Setup
+- The admin user credentials are pre-seeded in `Models/AppDbContext.cs`. Please feel free to update them before migrating the database
+
 ## License
 The project is released under [MIT](https://github.com/RamiB1234/mdlbeast-events-server/blob/master/LICENSE) License
